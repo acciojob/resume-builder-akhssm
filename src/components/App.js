@@ -32,10 +32,13 @@ const App = () => {
       {step === 2 && (
         <div>
           <h3>Add your Education Details</h3>
-          <input name="courseName" />
-          <input name="completionYear" />
-          <input name="college" />
-          <input name="percentage" />
+
+          <div>
+            <input name="courseName" />
+            <input name="completionYear" />
+            <input name="college" />
+            <input name="percentage" />
+          </div>
 
           <button
             id="add_education"
@@ -44,16 +47,26 @@ const App = () => {
             Add Education
           </button>
 
-          {education.map((_, i) => (
-            <p key={i}>{i + 1}</p>
-          ))}
+          <div className="makeStyles-instance-16">
+            {education.map((_, i) => (
+              <p key={i}>{i + 1}</p>
+            ))}
+          </div>
         </div>
       )}
 
       {step === 3 && (
         <div>
           <h3>Add your Skills</h3>
-          <input name="skill" />
+
+          <div>
+            <input name="skill" />
+            <div>
+              {skills.map((_, i) => (
+                <p key={i}>{i + 1}</p>
+              ))}
+            </div>
+          </div>
 
           <button
             id="add_skill"
@@ -61,19 +74,23 @@ const App = () => {
           >
             Add Skill
           </button>
-
-          {skills.map((_, i) => (
-            <p key={i}>{i + 1}</p>
-          ))}
         </div>
       )}
 
       {step === 4 && (
         <div>
           <h3>Add your Mini Projects</h3>
-          <input name="projectName" />
-          <input name="techStack" />
-          <textarea name="description" />
+
+          <div>
+            <input name="projectName" />
+            <input name="techStack" />
+            <textarea name="description" />
+            <div>
+              {projects.map((_, i) => (
+                <p key={i}>{i + 1}</p>
+              ))}
+            </div>
+          </div>
 
           <button
             id="add_project"
@@ -81,17 +98,21 @@ const App = () => {
           >
             Add Project
           </button>
-
-          {projects.map((_, i) => (
-            <p key={i}>{i + 1}</p>
-          ))}
         </div>
       )}
 
       {step === 5 && (
         <div>
           <h3>Add your Social Media Links</h3>
-          <input name="Social" />
+
+          <div>
+            <input name="Social" />
+            <div>
+              {socials.map((_, i) => (
+                <p key={i}>{i + 1}</p>
+              ))}
+            </div>
+          </div>
 
           <button
             id="add_social"
@@ -99,10 +120,6 @@ const App = () => {
           >
             Add Social
           </button>
-
-          {socials.map((_, i) => (
-            <p key={i}>{i + 1}</p>
-          ))}
         </div>
       )}
 
