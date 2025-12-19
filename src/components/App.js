@@ -18,6 +18,10 @@ const App = () => {
 
       <h1 className="title">RESUME GENERATOR</h1>
 
+      <div className="makeStyles-instance-16">
+        {eduCount > 0 && <p>1</p>}
+      </div>
+
       {step === 1 && (
         <div>
           <h3>Add your profile details</h3>
@@ -39,14 +43,10 @@ const App = () => {
 
           <button
             id="add_education"
-            onClick={() => setEduCount(eduCount + 1)}
+            onClick={() => setEduCount(1)}
           >
             Add Education
           </button>
-
-          <div className="makeStyles-instance-16">
-            {eduCount > 0 && <p>1</p>}
-          </div>
         </div>
       )}
 
@@ -57,7 +57,7 @@ const App = () => {
           <input
             name="skill"
             value={skillValue}
-            readOnly
+            onChange={(e) => setSkillValue(e.target.value)}
           />
 
           <button
@@ -76,7 +76,7 @@ const App = () => {
           <input
             name="projectName"
             value={projectValue}
-            readOnly
+            onChange={(e) => setProjectValue(e.target.value)}
           />
           <input name="techStack" />
           <textarea name="description" />
@@ -97,7 +97,7 @@ const App = () => {
           <input
             name="Social"
             value={socialValue}
-            readOnly
+            onChange={(e) => setSocialValue(e.target.value)}
           />
 
           <button
@@ -109,7 +109,6 @@ const App = () => {
         </div>
       )}
 
-      {/* FOOTER */}
       <div className="makeStyles-footer-15 buttons">
         <button id="back" onClick={back} disabled={step === 1}>
           BACK
