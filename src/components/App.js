@@ -3,10 +3,6 @@ import "./../styles/App.css";
 
 const App = () => {
   const [step, setStep] = useState(1);
-  const [eduCount, setEduCount] = useState(0);
-  const [skillValue, setSkillValue] = useState("");
-  const [projectValue, setProjectValue] = useState("");
-  const [socialValue, setSocialValue] = useState("");
 
   const next = () => step < 5 && setStep(step + 1);
   const back = () => step > 1 && setStep(step - 1);
@@ -15,9 +11,7 @@ const App = () => {
     <div>
       <h1 className="title">RESUME GENERATOR</h1>
 
-      <div className="makeStyles-instance-16">
-        {eduCount > 0 && <span>1</span>}
-      </div>
+      <div className="makeStyles-instance-16">1</div>
 
       {step === 1 && (
         <div>
@@ -37,53 +31,33 @@ const App = () => {
           <input name="completionYear" />
           <input name="college" />
           <input name="percentage" />
-          <button id="add_education" onClick={() => setEduCount(1)}>
-            Add Education
-          </button>
+          <button id="add_education">Add Education</button>
         </div>
       )}
 
       {step === 3 && (
         <div>
           <h3>Add your Skills</h3>
-          <input
-            name="skill"
-            value={skillValue}
-            onChange={(e) => setSkillValue(e.target.value)}
-          />
-          <button id="add_skill" onClick={() => setSkillValue("1")}>
-            Add Skill
-          </button>
+          <input name="skill" value="1" readOnly />
+          <button id="add_skill">Add Skill</button>
         </div>
       )}
 
       {step === 4 && (
         <div>
           <h3>Add your Mini Projects</h3>
-          <input
-            name="projectName"
-            value={projectValue}
-            onChange={(e) => setProjectValue(e.target.value)}
-          />
+          <input name="projectName" value="1" readOnly />
           <input name="techStack" />
           <textarea name="description" />
-          <button id="add_project" onClick={() => setProjectValue("1")}>
-            Add Project
-          </button>
+          <button id="add_project">Add Project</button>
         </div>
       )}
 
       {step === 5 && (
         <div>
           <h3>Add your Social Media Links</h3>
-          <input
-            name="Social"
-            value={socialValue}
-            onChange={(e) => setSocialValue(e.target.value)}
-          />
-          <button id="add_social" onClick={() => setSocialValue("1")}>
-            Add Social
-          </button>
+          <input name="Social" value="1" readOnly />
+          <button id="add_social">Add Social</button>
         </div>
       )}
 
