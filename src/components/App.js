@@ -61,138 +61,123 @@ const App = () => {
       </div>
 
       <div className="container">
+
         {step === 1 && (
           <>
             <h3>Add your profile details</h3>
-            <input name="fname" placeholder="First Name"
-              onChange={(e) => setProfile({ ...profile, fname: e.target.value })} />
-            <input name="lname" placeholder="Last Name"
-              onChange={(e) => setProfile({ ...profile, lname: e.target.value })} />
-            <input name="phone" placeholder="Phone Number"
-              onChange={(e) => setProfile({ ...profile, phone: e.target.value })} />
-            <input name="address" placeholder="Address"
-              onChange={(e) => setProfile({ ...profile, address: e.target.value })} />
+            <input name="fname" onChange={e => setProfile({ ...profile, fname: e.target.value })} />
+            <input name="lname" onChange={e => setProfile({ ...profile, lname: e.target.value })} />
+            <input name="phone" onChange={e => setProfile({ ...profile, phone: e.target.value })} />
+            <input name="address" onChange={e => setProfile({ ...profile, address: e.target.value })} />
             <input name="url" type="file" />
           </>
         )}
 
         {step === 2 && (
           <>
-            <h3>Add your Education Details</h3>
-            <input name="courseName" placeholder="Course Name *"
-              onChange={(e) => setEduForm({ ...eduForm, courseName: e.target.value })} />
-            <input name="completionYear" placeholder="Completion Year *"
-              onChange={(e) => setEduForm({ ...eduForm, completionYear: e.target.value })} />
-            <input name="college" placeholder="College/School *"
-              onChange={(e) => setEduForm({ ...eduForm, college: e.target.value })} />
-            <input name="percentage" placeholder="Percentage *"
-              onChange={(e) => setEduForm({ ...eduForm, percentage: e.target.value })} />
+            <h3>Add your Education Details ({education.length})</h3>
 
-            <button id="add_education"
-              onClick={() => {
-                setEducation([...education, eduForm]);
-                setEduForm({ courseName: "", completionYear: "", college: "", percentage: "" });
-              }}>
+            <input name="courseName" onChange={e => setEduForm({ ...eduForm, courseName: e.target.value })} />
+            <input name="completionYear" onChange={e => setEduForm({ ...eduForm, completionYear: e.target.value })} />
+            <input name="college" onChange={e => setEduForm({ ...eduForm, college: e.target.value })} />
+            <input name="percentage" onChange={e => setEduForm({ ...eduForm, percentage: e.target.value })} />
+
+            <button
+              id="add_education"
+              className="MuiButton-contained"
+              onClick={() => setEducation([...education, eduForm])}
+            >
               ADD EDUCATION
             </button>
 
-            <button id="delete" onClick={() => setEducation([])}>
-              DELETE
-            </button>
+            <button id="delete" onClick={() => setEducation([])}>DELETE</button>
           </>
         )}
 
         {step === 3 && (
           <>
-            <h3>Add your Skills</h3>
+            <h3>Add your Skills ({skills.length})</h3>
+
             <input
               name="skill"
-              placeholder="Skill *"
               value={skill}
-              onChange={(e) => setSkill(e.target.value)}
+              onChange={e => setSkill(e.target.value)}
             />
 
-            <button id="add_skill"
+            <button
+              id="add_skill"
+              className="MuiButton-contained"
               onClick={() => {
                 setSkills([...skills, skill]);
                 setSkill("");
-              }}>
+              }}
+            >
               ADD SKILL
             </button>
 
-            <button id="delete_skill" onClick={() => setSkills([])}>
-              DELETE SKILL
-            </button>
+            <button id="delete_skill" onClick={() => setSkills([])}>DELETE SKILL</button>
           </>
         )}
 
         {step === 4 && (
           <>
-            <h3>Add your Mini Projects</h3>
-            <input name="projectName" placeholder="Project Name *"
-              onChange={(e) =>
-                setProjectForm({ ...projectForm, projectName: e.target.value })} />
-            <input name="techStack" placeholder="Tech Stack"
-              onChange={(e) =>
-                setProjectForm({ ...projectForm, techStack: e.target.value })} />
-            <textarea name="description" placeholder="Description"
-              onChange={(e) =>
-                setProjectForm({ ...projectForm, description: e.target.value })} />
+            <h3>Add your Mini Projects ({projects.length})</h3>
 
-            <button id="add_project"
-              onClick={() => {
-                setProjects([...projects, projectForm]);
-                setProjectForm({ projectName: "", techStack: "", description: "" });
-              }}>
+            <input name="projectName" onChange={e => setProjectForm({ ...projectForm, projectName: e.target.value })} />
+            <input name="techStack" onChange={e => setProjectForm({ ...projectForm, techStack: e.target.value })} />
+            <textarea name="description" onChange={e => setProjectForm({ ...projectForm, description: e.target.value })} />
+
+            <button
+              id="add_project"
+              className="MuiButton-contained"
+              onClick={() => setProjects([...projects, projectForm])}
+            >
               ADD PROJECT
             </button>
 
-            <button id="delete" onClick={() => setProjects([])}>
-              DELETE
-            </button>
+            <button id="delete" onClick={() => setProjects([])}>DELETE</button>
           </>
         )}
 
         {step === 5 && (
           <>
-            <h3>Add social links like linkedin , github etc</h3>
+            <h3>Add your Social Media ({socials.length})</h3>
+
             <input
               name="Social"
-              placeholder="Social Links *"
               value={social}
-              onChange={(e) => setSocial(e.target.value)}
+              onChange={e => setSocial(e.target.value)}
             />
 
-            <button id="add_social"
+            <button
+              id="add_social"
+              className="MuiButton-contained"
               onClick={() => {
                 setSocials([...socials, social]);
                 setSocial("");
-              }}>
+              }}
+            >
               ADD SOCIAL
             </button>
           </>
         )}
 
-        {step === 6 && (
-          <>
-            <h3>All steps completed - your resume is ready!!</h3>
-            <h1>{profile.fname} {profile.lname}</h1>
-          </>
-        )}
-
-        <div className="buttons">
+        <div className="makeStyles-footer-15">
           <button id="back" onClick={back} disabled={step === 1}>
             BACK
           </button>
 
           {step < 6 && (
-            <button id="next" onClick={next}>
+            <button id="next" className="MuiButton-contained" onClick={next}>
               NEXT
             </button>
           )}
 
-          <button id="save_continue">SAVE AND CONTINUE</button>
+          <button id="save_continue" className="MuiButton-contained">
+            SAVE AND CONTINUE
+          </button>
         </div>
+
       </div>
     </>
   );
