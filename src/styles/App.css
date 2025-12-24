@@ -15,7 +15,6 @@ body {
   padding: 16px;
   margin: 0;
   font-size: 18px;
-  letter-spacing: 1px;
 }
 
 .steps {
@@ -32,8 +31,12 @@ body {
   color: #777;
 }
 
-.steps + div,
-.steps + div + div {
+.active-step {
+  font-weight: bold;
+  color: #ff0055;
+}
+
+.container {
   background: #fff;
   width: 80%;
   margin: 25px auto;
@@ -56,12 +59,10 @@ textarea {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  outline: none;
 }
 
 textarea {
   width: 100%;
-  resize: none;
   height: 80px;
 }
 
@@ -84,10 +85,11 @@ button {
 #add_education,
 #add_skill,
 #add_project,
-#add_social {
+#add_social,
+#next,
+#save_continue {
   background: #ff0055;
   color: white;
-  margin-right: 10px;
 }
 
 #delete,
@@ -96,23 +98,13 @@ button {
   color: white;
 }
 
+#back {
+  background: #ccc;
+}
+
 .buttons {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
-}
-
-#back {
-  background: #ccc;
-}
-
-#next,
-#save_continue {
-  background: #ff0055;
-  color: white;
-}
-
-p {
-  color: #555;
 }
