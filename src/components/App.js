@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <h1 className="title">RESUME GENERATOR</h1>
 
-      <div className="makeStyles-instance-16">1</div>
+      <div className="makeStyles-instance-16">{step}</div>
 
       {step === 1 && (
         <div>
@@ -32,31 +32,34 @@ const App = () => {
           <input name="college" />
           <input name="percentage" />
           <button id="add_education">Add Education</button>
+          <button id="delete">Delete</button>
         </div>
       )}
 
       {step === 3 && (
         <div>
           <h3>Add your Skills</h3>
-          <input name="skill" value="1" readOnly />
+          <input name="skill" />
           <button id="add_skill">Add Skill</button>
+          <button id="delete_skill">Delete Skill</button>
         </div>
       )}
 
       {step === 4 && (
         <div>
           <h3>Add your Mini Projects</h3>
-          <input name="projectName" value="1" readOnly />
+          <input name="projectName" />
           <input name="techStack" />
           <textarea name="description" />
           <button id="add_project">Add Project</button>
+          <button id="delete">Delete</button>
         </div>
       )}
 
       {step === 5 && (
         <div>
           <h3>Add your Social Media Links</h3>
-          <input name="Social" value="1" readOnly />
+          <input name="Social" />
           <button id="add_social">Add Social</button>
         </div>
       )}
@@ -67,7 +70,7 @@ const App = () => {
         </button>
 
         {step < 5 && (
-          <button id="next" className="MuiButton-contained" onClick={next}>
+          <button id="next" onClick={next}>
             NEXT
           </button>
         )}
