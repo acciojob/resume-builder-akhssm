@@ -9,19 +9,16 @@ const App = () => {
   const [projects, setProjects] = useState([]);
   const [socials, setSocials] = useState([]);
 
-  const next = () => setStep(step + 1);
-  const back = () => setStep(step - 1);
-
   return (
     <>
       <h1 className="title">RESUME GENERATOR</h1>
 
       <div className="steps">
-        <span className={step === 1 ? "active-step" : ""} data-step="1">Profile</span>
-        <span className={step === 2 ? "active-step" : ""} data-step="2">Education</span>
-        <span className={step === 3 ? "active-step" : ""} data-step="3">Skills</span>
-        <span className={step === 4 ? "active-step" : ""} data-step="4">Projects</span>
-        <span className={step === 5 ? "active-step" : ""} data-step="5">Social</span>
+        <span data-step="1" className={step === 1 ? "active-step" : ""}>Profile</span>
+        <span data-step="2" className={step === 2 ? "active-step" : ""}>Education</span>
+        <span data-step="3" className={step === 3 ? "active-step" : ""}>Skills</span>
+        <span data-step="4" className={step === 4 ? "active-step" : ""}>Projects</span>
+        <span data-step="5" className={step === 5 ? "active-step" : ""}>Social</span>
       </div>
 
       <div className="container">
@@ -29,11 +26,11 @@ const App = () => {
         {step === 1 && (
           <>
             <h3>Add your profile details</h3>
-            <input />
-            <input />
-            <input />
-            <input />
-            <input type="file" />
+            <input name="fname" placeholder="First Name" />
+            <input name="lname" placeholder="Last Name" />
+            <input name="phone" placeholder="Phone" />
+            <input name="address" placeholder="Address" />
+            <input name="url" type="file" />
           </>
         )}
 
@@ -42,13 +39,12 @@ const App = () => {
             <h3>Add your Education Details</h3>
 
             <div>
-              <input />
+              <input name="courseName" placeholder="Course Name" />
               <span>{education.length}</span>
             </div>
 
             <button
               id="add_education"
-              className="MuiButton-contained"
               onClick={() => setEducation([...education, {}])}
             >
               ADD EDUCATION
@@ -61,13 +57,12 @@ const App = () => {
             <h3>Add your Skills</h3>
 
             <div>
-              <input />
+              <input name="skill" placeholder="Skill" />
               <span>{skills.length}</span>
             </div>
 
             <button
               id="add_skill"
-              className="MuiButton-contained"
               onClick={() => setSkills([...skills, {}])}
             >
               ADD SKILL
@@ -80,13 +75,12 @@ const App = () => {
             <h3>Add your Mini Projects</h3>
 
             <div>
-              <input />
+              <input name="projectName" placeholder="Project Name" />
               <span>{projects.length}</span>
             </div>
 
             <button
               id="add_project"
-              className="MuiButton-contained"
               onClick={() => setProjects([...projects, {}])}
             >
               ADD PROJECT
@@ -96,16 +90,15 @@ const App = () => {
 
         {step === 5 && (
           <>
-            <h3>Add your Social Media</h3>
+            <h3>Add social links</h3>
 
             <div>
-              <input />
+              <input name="Social" placeholder="Social Link" />
               <span>{socials.length}</span>
             </div>
 
             <button
               id="add_social"
-              className="MuiButton-contained"
               onClick={() => setSocials([...socials, {}])}
             >
               ADD SOCIAL
@@ -113,11 +106,19 @@ const App = () => {
           </>
         )}
 
-        <div className="makeStyles-footer-15">
-          {step > 1 && <button id="back" onClick={back}>BACK</button>}
-          {step < 5 && <button id="next" onClick={next}>NEXT</button>}
-        </div>
+        <div className="buttons">
+          {step > 1 && (
+            <button id="back" onClick={() => setStep(step - 1)}>
+              BACK
+            </button>
+          )}
 
+          {step < 5 && (
+            <button id="next" onClick={() => setStep(step + 1)}>
+              NEXT
+            </button>
+          )}
+        </div>
       </div>
     </>
   );
