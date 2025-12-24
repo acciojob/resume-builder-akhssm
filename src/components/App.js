@@ -14,10 +14,10 @@ const App = () => {
       <h1 className="title">RESUME GENERATOR</h1>
 
       <div className="steps">
-        <span data-step="1" className={step === 1 ? "active-step" : ""}>Profile</span>
-        <span data-step="2" className={step === 2 ? "active-step" : ""}>Education</span>
-        <span data-step="3" className={step === 3 ? "active-step" : ""}>Skills</span>
-        <span data-step="4" className={step === 4 ? "active-step" : ""}>Projects</span>
+        <span data-step="1" className={step === 1 ? "active-step" : ""}>Profile Section</span>
+        <span data-step="2" className={step === 2 ? "active-step" : ""}>Education Section</span>
+        <span data-step="3" className={step === 3 ? "active-step" : ""}>Skills Sector</span>
+        <span data-step="4" className={step === 4 ? "active-step" : ""}>Mini Project</span>
         <span data-step="5" className={step === 5 ? "active-step" : ""}>Social</span>
       </div>
 
@@ -38,16 +38,26 @@ const App = () => {
           <>
             <h3>Add your Education Details</h3>
 
-            <div>
-              <input name="courseName" placeholder="Course Name" />
-              <span>{education.length}</span>
-            </div>
+            <input name="courseName" placeholder="Course Name *" />
+            <input name="completionYear" placeholder="Completion Year *" />
+
+            <input name="college" placeholder="College/School *" />
+            <input name="percentage" placeholder="Percentage *" />
+
+            <div className="counter">{education.length}</div>
 
             <button
               id="add_education"
               onClick={() => setEducation([...education, {}])}
             >
               ADD EDUCATION
+            </button>
+
+            <button
+              id="delete"
+              onClick={() => setEducation([])}
+            >
+              DELETE
             </button>
           </>
         )}
@@ -57,7 +67,7 @@ const App = () => {
             <h3>Add your Skills</h3>
 
             <div>
-              <input name="skill" placeholder="Skill" />
+              <input name="skill" placeholder="Skill *" />
               <span>{skills.length}</span>
             </div>
 
@@ -67,6 +77,13 @@ const App = () => {
             >
               ADD SKILL
             </button>
+
+            <button
+              id="delete_skill"
+              onClick={() => setSkills([])}
+            >
+              DELETE SKILL
+            </button>
           </>
         )}
 
@@ -74,16 +91,24 @@ const App = () => {
           <>
             <h3>Add your Mini Projects</h3>
 
-            <div>
-              <input name="projectName" placeholder="Project Name" />
-              <span>{projects.length}</span>
-            </div>
+            <input name="projectName" placeholder="Project Name *" />
+            <input name="techStack" placeholder="Tech Stack" />
+            <textarea name="description" placeholder="Description" />
+
+            <div className="counter">{projects.length}</div>
 
             <button
               id="add_project"
               onClick={() => setProjects([...projects, {}])}
             >
               ADD PROJECT
+            </button>
+
+            <button
+              id="delete"
+              onClick={() => setProjects([])}
+            >
+              DELETE
             </button>
           </>
         )}
@@ -93,7 +118,7 @@ const App = () => {
             <h3>Add social links</h3>
 
             <div>
-              <input name="Social" placeholder="Social Link" />
+              <input name="Social" placeholder="Social Links *" />
               <span>{socials.length}</span>
             </div>
 
@@ -118,6 +143,8 @@ const App = () => {
               NEXT
             </button>
           )}
+
+          <button id="save_continue">SAVE AND CONTINUE</button>
         </div>
       </div>
     </>
