@@ -21,10 +21,7 @@ const App = () => {
 
       <div className="steps">
         {steps.map((label, index) => (
-          <span
-            key={index}
-            className={step === index + 1 ? "active-step" : ""}
-          >
+          <span key={index} className={step === index + 1 ? "active-step" : ""}>
             {index + 1}. {label}
           </span>
         ))}
@@ -34,21 +31,21 @@ const App = () => {
         {step === 1 && (
           <>
             <h3>Add your profile details</h3>
-            <input placeholder="First Name" />
-            <input placeholder="Last Name" />
-            <input placeholder="Phone Number" />
-            <input placeholder="Address" />
-            <input type="file" />
+            <input name="fname" placeholder="First Name" />
+            <input name="lname" placeholder="Last Name" />
+            <input name="phone" placeholder="Phone Number" />
+            <input name="address" placeholder="Address" />
+            <input name="url" type="file" />
           </>
         )}
 
         {step === 2 && (
           <>
             <h3>Add your Education Details</h3>
-            <input placeholder="Course Name" />
-            <input placeholder="Completion Year" />
-            <input placeholder="College" />
-            <input placeholder="Percentage" />
+            <input name="courseName" placeholder="Course Name" />
+            <input name="completionYear" placeholder="Completion Year" />
+            <input name="college" placeholder="College" />
+            <input name="percentage" placeholder="Percentage" />
             <button id="add_education">Add Education</button>
             <button id="delete">Delete</button>
           </>
@@ -57,7 +54,7 @@ const App = () => {
         {step === 3 && (
           <>
             <h3>Add your Skills</h3>
-            <input placeholder="Skill" />
+            <input name="skill" placeholder="Skill" />
             <button id="add_skill">Add Skill</button>
             <button id="delete_skill">Delete Skill</button>
           </>
@@ -66,9 +63,9 @@ const App = () => {
         {step === 4 && (
           <>
             <h3>Add your Mini Projects</h3>
-            <input placeholder="Project Name" />
-            <input placeholder="Tech Stack" />
-            <textarea placeholder="Description"></textarea>
+            <input name="projectName" placeholder="Project Name" />
+            <input name="techStack" placeholder="Tech Stack" />
+            <textarea name="description" placeholder="Description"></textarea>
             <button id="add_project">Add Project</button>
             <button id="delete">Delete</button>
           </>
@@ -77,7 +74,7 @@ const App = () => {
         {step === 5 && (
           <>
             <h3>Add your Social Media Links</h3>
-            <input placeholder="Social Media URL" />
+            <input name="Social" placeholder="Social Media URL" />
             <button id="add_social">Add Social</button>
           </>
         )}
